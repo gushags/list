@@ -12,4 +12,5 @@ list.append("Test 5");
 list.insertAt("Test 3.5", 4);
 
 console.log(list.toString());
-console.log(list);
+list.removeAt(4);
+console.log(list.toString());

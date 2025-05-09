@@ -117,10 +117,6 @@ export class LinkedList {
   }
 
   insertAt(value, index) {
-    // go to index - 1
-    // copy the nextNode value to next??
-    // point index - 1 to value
-    // point value.nextNode to next
     if (index > this.size) {
       throw new Error("Index is outside the range of the linked list.");
     }
@@ -135,6 +131,17 @@ export class LinkedList {
     this.size += 1;
   }
   // that inserts a new node with the provided value at the given index.
-  removeAt(index) {}
-  // that removes the node at the given index.
+  removeAt(index) {
+    if (index > this.size) {
+      throw new Error("Index is outside the range of the linked list.");
+    }
+    let current = this.head;
+    for (let i = 0; i < index - 1; i++) {
+      current = current.nextNode;
+    }
+    let removedNode = current.nextNode;
+    let targetNode = removedNode.nextNode;
+    current.nextNode = targetNode;
+    this.size -= 1;
+  }
 }
