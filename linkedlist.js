@@ -115,4 +115,26 @@ export class LinkedList {
     }
     return (string += "null");
   }
+
+  insertAt(value, index) {
+    // go to index - 1
+    // copy the nextNode value to next??
+    // point index - 1 to value
+    // point value.nextNode to next
+    if (index > this.size) {
+      throw new Error("Index is outside the range of the linked list.");
+    }
+    const insertNode = new Node(value);
+    let current = this.head;
+    for (let i = 0; i < index - 1; i++) {
+      current = current.nextNode;
+    }
+    let next = current.nextNode;
+    current.nextNode = insertNode;
+    insertNode.nextNode = next;
+    this.size += 1;
+  }
+  // that inserts a new node with the provided value at the given index.
+  removeAt(index) {}
+  // that removes the node at the given index.
 }
